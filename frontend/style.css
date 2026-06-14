@@ -1,0 +1,330 @@
+/* ── Reset & Base ─────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --green-dark:   #2d6a4f;
+  --green-mid:    #40916c;
+  --green-light:  #74c69d;
+  --green-pale:   #d8f3dc;
+  --white:        #ffffff;
+  --gray-100:     #f8f9fa;
+  --gray-300:     #dee2e6;
+  --gray-500:     #adb5bd;
+  --gray-700:     #495057;
+  --gray-900:     #212529;
+  --red:          #e63946;
+
+  --radius:       10px;
+  --shadow:       0 2px 12px rgba(0, 0, 0, 0.08);
+  --transition:   0.2s ease;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--gray-100);
+  color: var(--gray-900);
+  min-height: 100vh;
+}
+
+/* ── Header ───────────────────────────────────────────── */
+header {
+  background: var(--green-dark);
+  padding: 1.25rem 2rem;
+}
+
+.header-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.5px;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: var(--green-light);
+  margin-top: 2px;
+}
+
+/* ── Main Layout ──────────────────────────────────────── */
+main {
+  max-width: 860px;
+  margin: 2rem auto;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── Form Section ─────────────────────────────────────── */
+.form-section {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.75rem;
+}
+
+.form-section h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--green-dark);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--green-pale);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.required {
+  color: var(--red);
+}
+
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+  padding: 0.6rem 0.85rem;
+  border: 1.5px solid var(--gray-300);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  color: var(--gray-900);
+  background: var(--white);
+  transition: border-color var(--transition);
+  width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--green-mid);
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* ── Form Actions ─────────────────────────────────────── */
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+button {
+  padding: 0.65rem 1.4rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+#submit-btn {
+  background: var(--green-mid);
+  color: var(--white);
+}
+
+#submit-btn:hover {
+  background: var(--green-dark);
+  transform: translateY(-1px);
+}
+
+#cancel-btn {
+  background: var(--gray-100);
+  color: var(--gray-700);
+  border: 1.5px solid var(--gray-300);
+}
+
+#cancel-btn:hover {
+  background: var(--gray-300);
+}
+
+.error-msg {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--red);
+  font-weight: 500;
+}
+
+/* ── Task List Section ────────────────────────────────── */
+.list-section h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.task-count {
+  font-size: 0.8rem;
+  background: var(--green-pale);
+  color: var(--green-dark);
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.empty-msg {
+  text-align: center;
+  color: var(--gray-500);
+  font-size: 0.95rem;
+  padding: 2.5rem 0;
+}
+
+/* ── Task Card ────────────────────────────────────────── */
+.task-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.1rem 1.4rem;
+  margin-bottom: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  border-left: 4px solid var(--green-light);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.task-card.completed {
+  border-left-color: var(--gray-300);
+  opacity: 0.75;
+}
+
+.task-info {
+  flex: 1;
+}
+
+.task-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 0.25rem;
+}
+
+.task-card.completed .task-title {
+  text-decoration: line-through;
+  color: var(--gray-500);
+}
+
+.task-description {
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  margin-bottom: 0.5rem;
+}
+
+.task-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.4rem;
+}
+
+/* ── Badges ───────────────────────────────────────────── */
+.badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  text-transform: capitalize;
+}
+
+.badge-low      { background: #e9f5db; color: #4a7c35; }
+.badge-medium   { background: #fff3cd; color: #856404; }
+.badge-high     { background: #fde8e8; color: #c0392b; }
+.badge-pending  { background: var(--green-pale); color: var(--green-dark); }
+.badge-completed{ background: var(--gray-300);   color: var(--gray-700); }
+
+.task-due {
+  font-size: 0.78rem;
+  color: var(--gray-500);
+}
+
+/* ── Card Actions ─────────────────────────────────────── */
+.task-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.btn-edit {
+  background: var(--green-pale);
+  color: var(--green-dark);
+  padding: 0.4rem 0.9rem;
+  font-size: 0.82rem;
+}
+
+.btn-edit:hover {
+  background: var(--green-light);
+}
+
+.btn-delete {
+  background: #fde8e8;
+  color: var(--red);
+  padding: 0.4rem 0.9rem;
+  font-size: 0.82rem;
+}
+
+.btn-delete:hover {
+  background: #f5c6cb;
+}
+
+/* ── Utility ──────────────────────────────────────────── */
+.hidden {
+  display: none !important;
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .task-card {
+    flex-direction: column;
+  }
+
+  .task-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

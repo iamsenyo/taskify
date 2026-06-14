@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taskify</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- Header -->
+    <header>
+      <div class="header-inner">
+        <span class="logo">✔ Taskify</span>
+        <p class="tagline">Stay on top of your day</p>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- Task Form -->
+      <section class="form-section">
+        <h2 id="form-title">Add New Task</h2>
+        <form id="task-form">
+          <input type="hidden" id="task-id" />
+
+          <div class="form-group">
+            <label for="title">Task Title <span class="required">*</span></label>
+            <input type="text" id="title" placeholder="e.g. Buy groceries" required />
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" placeholder="Optional details about the task" rows="3"></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="priority">Priority <span class="required">*</span></label>
+              <select id="priority" required>
+                <option value="">-- Select --</option>
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="status">Status</label>
+              <select id="status">
+                <option value="pending" selected>Pending</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="due_date">Due Date <span class="required">*</span></label>
+              <input type="date" id="due_date" required />
+            </div>
+          </div>
+
+          <!-- Fix 1: Added form-error element for validation messages -->
+          <p id="form-error" class="error-msg hidden"></p>
+
+          <div class="form-actions">
+            <button type="submit" id="submit-btn">Add Task</button>
+            <button type="button" id="cancel-btn" class="hidden">Cancel Edit</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Task List -->
+      <section class="tasks-section">
+        <!-- Fix 2: Added task-count span to display number of tasks -->
+        <h2>Your Tasks <span id="task-count" class="task-count">0</span></h2>
+        <div id="task-list">
+          <p class="empty-state">No tasks yet. Add one above to get started!</p>
+        </div>
+      </section>
+
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
