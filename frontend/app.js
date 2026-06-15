@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/tasks";
+const API_URL = "https://taskify-kjmm.onrender.com/api/tasks";
 
 // ── On Page Load ───────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
